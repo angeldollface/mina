@@ -22,7 +22,13 @@ Every Mina app has two main parts: static components and reactive components.
 Static components are supplied as-is, as HTML strings.
 Reactive components are a little more complex. 
 
-Reactive components have three main parts: the stateful data, the element the data is used in, and.
+Reactive components have two main parts: the stateful data and the element the data is used in.
+If your app receieves an event to update the stateful data, that change will be reflected in the HTML.
+This update event is triggered via a controller. This controller has three properties:
+i) the stateful data to update, ii) the function to change the state of the data, and iii) the element to trigger the update.
+
+Both components and controllers are added to your app and the app class kees track of all the stateful data and any update events receieved.
+Once the data changes and resultijg from that, the HTML, the HTML containing the stateful data is updated and sent to the client.
 ## USAGE :hammer:
 
 ### APIs
