@@ -6,3 +6,13 @@ export class Component {
 }
 
 export default Component;
+
+/*
+let count: number;
+let component = new Component(
+	{
+		stateful: count,
+
+	}
+);
+*/
