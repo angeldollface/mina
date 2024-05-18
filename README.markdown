@@ -27,8 +27,9 @@ If your app receieves an event to update the stateful data, that change will be 
 This update event is triggered via a controller. This controller has three properties:
 i) the stateful data to update, ii) the function to change the state of the data, and iii) the element to trigger the update.
 
-Both components and controllers are added to your app and the app class kees track of all the stateful data and any update events receieved.
-Once the data changes and resultijg from that, the HTML, the HTML containing the stateful data is updated and sent to the client.
+Both components and controllers are added to your app and the app class keeps track of all the stateful data and any update events receieved.
+Once the data changes and resulting from that, the HTML too, the HTML containing the stateful data is updated and sent to the client.
+
 ## USAGE :hammer:
 
 ### APIs
