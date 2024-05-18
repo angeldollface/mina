@@ -2,12 +2,27 @@
 
 ![GitHub CI](https://github.com/angeldollface/mina/actions/workflows/deno.yml/badge.svg)
 
-***A minimal web framework for building reactive web applications. :fairy_woman:***
+***A minimal web framework for building reactive, server-side-rendered web applications. :fairy_woman:***
 
 ## ABOUT :books:
 
 *Mina* is a minimalistic web framework to help you build reactive, server-side-rendered web applications. *Mina* exists because making Javascript framework is considered some superhuman feat. I wrote this to prove how easy this "superhuman feat" is. *Mina* is an abbreviation of the words "minimal" and "reactive". I initially wanted to call this project "MinR" but that sounds stupid. *Mina* runs on Typescript and Deno. Node.js will never, ever be supported. This repository contains *Mina's* source code. Enjoy.
 
+## FEATURES :test_tube:
+
+- Server-side rendering of pages.
+- Zero Javascript shipped to the client.
+- No build-step.
+- Partial Hydration.
+- Fast and simple APIs to get the job done quickly.
+
+## HOW MINA WORKS :gear:
+
+Every Mina app has two main parts: static components and reactive components.
+Static components are supplied as-is, as HTML strings.
+Reactive components are a little more complex. 
+
+Reactive components have three main parts: the stateful data, the element the data is used in, and.
 ## USAGE :hammer:
 
 ### APIs
