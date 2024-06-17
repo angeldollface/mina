@@ -1,11 +1,21 @@
-/*
-MINA by Alexander Abraham, 
-a.k.a. "Angel Dollface".
-Licensed under the DSL v1.
-*/
+import {
+    serveApp,
+    ExtendedPage, 
+    getPageContentsByName, 
+    extendedPagesFromApp, 
+} from './src/server.ts';
+import { App } from './src/app.ts';
+import { Tag } from './src/tag.ts';
+import { Page } from './src/page.ts';
+import { IpAddress } from './src/utils.ts';
 
-export { App } from './src/app.ts';
-export { serveApp } from './src/server.ts';
-export { Component } from './src/component.ts';
-export { Controller } from './src/controller.ts';
-export { parseTemplateString } from './src/parser.ts';
+export {
+    Tag,
+    App,
+    Page,
+    serveApp,
+    IpAddress,
+    ExtendedPage,
+    extendedPagesFromApp,
+    getPageContentsByName
+};
