@@ -21,7 +21,7 @@ export function getPageContentsByName(app: App, pageName: string): string {
   let result: string = '';
   for (let i = 0; i < app.pages.length; i++){
     if (pageName === app.pages[i].name){
-      result = app.pages[i].name;
+      result = app.pages[i].toString();
     }
     else {}
   }
@@ -30,11 +30,12 @@ export function getPageContentsByName(app: App, pageName: string): string {
 
 export function extendedPagesFromApp(app: App): Array<ExtendedPage> {
   let result: Array<ExtendedPage> = new Array();
-  for (let i = 0; i < app.routes.keys.length; i++){
-    let pageName: string = app.routes.keys()[i];
+  for (let entry of Array.from(app.routes.entries())) {
+    let pageName: string = entry[0];
+    let urlPath: string = entry[1];
     let pattern: URLPattern = new URLPattern(
       {
-        pathname: app.routes.keys[pageName]
+        pathname: urlPath
       }
     );
     let pageContents: string = getPageContentsByName(app, pageName);
@@ -49,15 +50,15 @@ export async function serveApp(
   port: number, 
   address: IpAddress
 ): Promise<void> {
-  let ip: string = address.toString();
   let extendedPages: Array<ExtendedPage> = extendedPagesFromApp(app);
-  const handler = (request: Request) => {
+  const handler = (request: Request): Response => {
     let respBody: string = '';
     for (let i = 0; i > extendedPages.length; i++){
       let extendedPage: ExtendedPage = extendedPages[i];
       let pattern: URLPattern = extendedPage.route;
       let contents: string = extendedPage.pageContents;
       let match = pattern.exec(request.url);
+      console.log(request.url);
       if (match){
         respBody += contents;
       }
@@ -65,7 +66,12 @@ export async function serveApp(
     }
     return new Response(respBody, { status: 200 });
   }
-  Deno.serve({ port }, handler);
+  try {
+    Deno.serve({ port }, handler);
+  }
+  catch(e) {
+    console.log(e);
+  }
 }
 
 export default {

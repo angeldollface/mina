@@ -61,7 +61,7 @@ export async function main(): Promise<void> {
         pages,
         routes
     );
-    await mina.serveApp(
+    mina.serveApp(
         myApp,
         8080,
         new mina.IpAddress('127', '0', '0', '1')
