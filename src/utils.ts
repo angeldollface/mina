@@ -1,24 +1,17 @@
-export class IpAddress {
-    a: string;
-    b: string;
-    c: string;
-    d: string;
+import { Page } from './page.ts';
 
-    constructor(
-        a: string,
-        b: string,
-        c: string,
-        d: string,
-    ){
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        this.d = d;
+export function getPageContentsByName(
+    pages: Array<Page>, 
+    pageName: string
+): string {
+    let result: string = '';
+    for (let i = 0; i < pages.length; i++){
+      if (pageName === pages[i].name){
+        result = pages[i].toString();
+      }
+      else {}
     }
-
-    toString(): string {
-        return this.a + '.' + this.b + '.' + this.c + '.' + this.d;
-    }
+    return result;
 }
 
-export default IpAddress;
+export default getPageContentsByName;

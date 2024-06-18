@@ -17,11 +17,11 @@ export class Tag{
     toString(): string {
         let html: string = '';
         let attributeString: string = '';
-        html += '<' + this.name + ' ';
-        for (let i = 0; i < this.attributes.keys.length; i++){
-            let key: string = this.attributes.keys()[i];
-            let value: string = this.attributes[key];
-            attributeString += key + '="' + value + '" ';
+        html += '<' + this.name;
+        for (let entry of Array.from(this.attributes.entries())){
+            let key: string = entry[0];
+            let value: string = entry[1];
+            attributeString += ' ' + key + '="' + value + '"';
         }
         html += attributeString;
         if (this.isClosed){
